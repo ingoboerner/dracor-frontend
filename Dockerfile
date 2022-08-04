@@ -11,7 +11,7 @@ RUN yarn build
 
 FROM nginx:stable-alpine
 #set to local api
-ARG DRACOR_API= http://api:8080/exist/restxq
+ARG DRACOR_API=https://dracor.org/api
 ENV DRACOR_API=${DRACOR_API}
 COPY --from=build /app/build /usr/share/nginx/html
 COPY --from=build /app/nginx.conf /tmp
